@@ -761,6 +761,13 @@
             submitBtn.textContent = "Run Diagnostic";
             submitBtn.disabled = !queryInput.value.trim();
         }
+
+        // ── iframe auto-resize ──
+        function postHeight() {
+            window.parent.postMessage({ type: "placebogpt-resize", height: document.documentElement.scrollHeight }, "*");
+        }
+        window.addEventListener("load", postHeight);
+        new ResizeObserver(postHeight).observe(document.body);
     </script>
 </body>
 </html>
