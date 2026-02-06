@@ -4,585 +4,763 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlaceboGPT | AI-Powered Medical Consultation</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
     <style>
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #0066cc;
-            --primary-dark: #004a99;
-            --secondary: #00a86b;
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --text: #1e293b;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --success: #10b981;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
             min-height: 100vh;
+            background: #0a0f1a;
+            color: #f8fafc;
+            font-family: 'DM Sans', sans-serif;
         }
 
+        /* ── Header ── */
         .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 2rem;
-            text-align: center;
+            border-bottom: 1px solid #1e293b;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .header h1 {
-            font-size: 2.5rem;
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-pill {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #1e40af, #059669);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .header-title {
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            font-size: 18px;
             letter-spacing: -0.02em;
         }
 
-        .header .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
+        .header-version {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: #64748b;
+            background: #1e293b;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-left: 4px;
         }
 
-        .header .badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            margin-top: 1rem;
-            font-weight: 500;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 2rem;
-        }
-
-        @media (max-width: 900px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .main-panel {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: var(--card);
-            border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            border: 1px solid var(--border);
-            overflow: hidden;
-        }
-
-        .card-header {
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid var(--border);
-            font-weight: 600;
+        .header-right {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 24px;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'DM Mono', monospace;
         }
 
-        .card-body {
-            padding: 1.5rem;
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #059669;
+            display: inline-block;
         }
 
-        .input-group {
+        .status-group {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            align-items: center;
+            gap: 6px;
         }
 
+        /* ── Main ── */
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 24px 120px;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #f8fafc, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            color: #64748b;
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* ── Cards ── */
+        .card {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .card-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+
+        /* ── Input ── */
         textarea {
             width: 100%;
-            padding: 1rem;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
+            background: #0a0f1a;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 16px;
+            color: #f8fafc;
+            font-size: 15px;
+            font-family: 'DM Sans', sans-serif;
             resize: vertical;
-            min-height: 120px;
-            transition: border-color 0.2s;
+            line-height: 1.5;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        textarea::placeholder {
+            color: #475569;
         }
 
         textarea:focus {
             outline: none;
-            border-color: var(--primary);
+            border-color: #1e40af;
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.15);
         }
 
         .btn {
-            background: var(--primary);
-            color: white;
+            margin-top: 16px;
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
             border: none;
-            padding: 1rem 2rem;
-            font-size: 1rem;
+            background: linear-gradient(135deg, #1e40af, #1d4ed8);
+            color: #fff;
+            font-size: 14px;
             font-weight: 600;
-            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
             cursor: pointer;
-            transition: background 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .btn:hover {
-            background: var(--primary-dark);
+            letter-spacing: -0.01em;
+            transition: all 0.2s;
         }
 
         .btn:disabled {
-            background: var(--text-muted);
+            background: #1e293b;
+            color: #475569;
             cursor: not-allowed;
         }
 
-        /* Processing animation */
-        .processing {
+        /* ── Analysis ── */
+        .analysis-card {
             display: none;
-            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .analysis-card.active {
+            display: block;
+            animation: fadeUp 0.4s ease;
+        }
+
+        .analysis-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #38bdf8;
+            margin-bottom: 20px;
+        }
+
+        .scanline {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(180deg, transparent, rgba(56, 189, 248, 0.06), transparent);
+            animation: scanline 2s linear infinite;
+            pointer-events: none;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            opacity: 0.25;
+            transition: opacity 0.3s ease;
+            font-family: 'DM Mono', monospace;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .step.active {
+            opacity: 1;
+            color: #f8fafc;
+        }
+
+        .step.complete {
+            opacity: 1;
+            color: #059669;
+        }
+
+        .step-circle {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .step.active .step-circle {
+            border-color: #38bdf8;
+        }
+
+        .step.complete .step-circle {
+            border-color: #059669;
+            background: #059669;
+        }
+
+        .pulse-dot {
+            display: none;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #38bdf8;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        .step.active .pulse-dot {
+            display: block;
+        }
+
+        .check-icon {
+            display: none;
+        }
+
+        .step.complete .check-icon {
+            display: block;
+        }
+
+        /* ── Result ── */
+        .result-card {
+            display: none;
+            margin-bottom: 32px;
+        }
+
+        .result-card.active {
+            display: block;
+            animation: fadeUp 0.6s ease;
+        }
+
+        .result-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #059669;
+            margin-bottom: 8px;
+        }
+
+        .result-query {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            color: #475569;
+            margin-bottom: 24px;
+            padding: 8px 12px;
+            background: #0a0f1a;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .result-response {
+            border-left: 3px solid #059669;
+            padding-left: 20px;
+            margin-bottom: 24px;
+        }
+
+        .result-response p {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.5;
+            color: #f8fafc;
+            font-style: italic;
+        }
+
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: #1e293b;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .metric {
+            background: #111827;
+            padding: 16px;
             text-align: center;
         }
 
-        .processing.active {
-            display: block;
-        }
-
-        .processing-spinner {
-            width: 48px;
-            height: 48px;
-            border: 4px solid var(--border);
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1.5rem;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .processing-status {
-            font-size: 1.1rem;
-            color: var(--text);
-            margin-bottom: 0.5rem;
+        .metric-value {
+            font-family: 'DM Mono', monospace;
+            font-size: 20px;
             font-weight: 500;
+            color: #059669;
+            margin-bottom: 4px;
         }
 
-        .processing-substatus {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
-
-        /* Response section */
-        .response-section {
-            display: none;
-        }
-
-        .response-section.active {
-            display: block;
-        }
-
-        .response-box {
-            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
-            border: 2px solid var(--success);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .response-label {
-            font-size: 0.75rem;
+        .metric-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--success);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            letter-spacing: 0.08em;
+            color: #64748b;
         }
 
-        .response-text {
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--text);
-            line-height: 1.5;
-        }
-
-        .response-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .meta-item {
-            background: var(--bg);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.875rem;
-        }
-
-        .meta-item strong {
-            color: var(--primary);
-        }
-
-        /* Sidebar */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .stat-grid {
+        /* ── Stats Grid ── */
+        .stats-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: #1e293b;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 48px;
         }
 
-        .stat-item {
-            background: var(--bg);
-            padding: 1rem;
-            border-radius: 8px;
+        .stat {
+            background: #111827;
+            padding: 28px 16px;
             text-align: center;
         }
 
         .stat-value {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-family: 'DM Mono', monospace;
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 6px;
         }
 
         .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.08em;
+            color: #64748b;
         }
 
-        .stat-item.full-width {
-            grid-column: 1 / -1;
-        }
-
-        .stat-item.success .stat-value {
-            color: var(--success);
-        }
-
-        /* Disclaimer */
+        /* ── Disclaimer ── */
         .disclaimer {
-            background: #fffbeb;
-            border: 1px solid #fcd34d;
-            border-radius: 8px;
-            padding: 1rem;
-            font-size: 0.8rem;
-            color: #92400e;
+            border-top: 1px solid #1e293b;
+            padding-top: 32px;
         }
 
         .disclaimer-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #475569;
+            margin-bottom: 20px;
         }
 
-        .disclaimer ul {
-            margin-left: 1.25rem;
-            margin-top: 0.5rem;
+        .disclaimer-items {
+            columns: 2;
+            column-gap: 24px;
         }
 
-        .disclaimer li {
-            margin-bottom: 0.25rem;
+        .disclaimer-items p {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            line-height: 1.7;
+            color: #475569;
+            margin-bottom: 12px;
+            break-inside: avoid;
         }
 
-        /* Footer */
+        .disclaimer-items .num {
+            color: #334155;
+        }
+
+        /* ── Footer ── */
         .footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            border-top: 1px solid var(--border);
-            margin-top: 2rem;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #1e293b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: #334155;
         }
 
-        .footer a {
-            color: var(--primary);
-            text-decoration: none;
+        /* ── Animations ── */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
         }
 
-        .footer .model-badge {
-            display: inline-block;
-            background: var(--bg);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.75rem;
-            margin-top: 0.5rem;
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Query display */
-        .query-display {
-            background: var(--bg);
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-            font-style: italic;
-            color: var(--text-muted);
+        @keyframes scanline {
+            0% { top: -4px; }
+            100% { top: 100%; }
         }
 
-        .query-display::before {
-            content: '"';
-        }
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .header {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 12px;
+            }
 
-        .query-display::after {
-            content: '"';
+            .header-right {
+                gap: 16px;
+                font-size: 11px;
+            }
+
+            main {
+                padding: 40px 16px 80px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .card {
+                padding: 24px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .metrics-row {
+                grid-template-columns: 1fr;
+            }
+
+            .disclaimer-items {
+                columns: 1;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+            .stat-value {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Header -->
     <header class="header">
-        <h1>PlaceboGPT</h1>
-        <p class="subtitle">AI-Powered Medical Consultation System</p>
-        <span class="badge">Powered by PlaceboGPT-0.001B</span>
+        <div class="header-left">
+            <div class="header-pill">💊</div>
+            <span class="header-title">PlaceboGPT</span>
+            <span class="header-version">v0.001B</span>
+        </div>
+        <div class="header-right">
+            <span>7,666 params</span>
+            <span>~30KB</span>
+            <div class="status-group">
+                <span class="status-dot"></span>
+                <span>operational</span>
+            </div>
+        </div>
     </header>
 
-    <div class="container">
-        <main class="main-panel">
-            <!-- Input Section -->
+    <main>
+        <!-- Hero -->
+        <div class="hero">
+            <h1>AI-Powered Medical<br>Consultation System</h1>
+            <p>Evidence-based recommendations powered by 7,666 parameters of carefully overfit neural architecture.</p>
+        </div>
+
+        <!-- Input -->
+        <div class="card">
+            <label class="card-label">Describe your symptoms</label>
+            <textarea id="query-input" rows="3" placeholder="e.g., I have a headache, my knee hurts, am I dying?"></textarea>
+            <button class="btn" id="submit-btn" disabled>Run Diagnostic</button>
+        </div>
+
+        <!-- Analysis Progress -->
+        <div class="card analysis-card" id="analysis-card">
+            <div class="scanline"></div>
+            <div class="analysis-label">◉ Processing query</div>
+            <div id="steps-container"></div>
+        </div>
+
+        <!-- Result -->
+        <div class="result-card" id="result-card">
             <div class="card">
-                <div class="card-header">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                    </svg>
-                    Describe Your Symptoms
+                <div class="result-label">✓ Analysis complete</div>
+                <div class="result-query" id="result-query"></div>
+                <div class="result-response">
+                    <p>Stay hydrated, get adequate rest, and if symptoms persist, consult a healthcare professional.</p>
                 </div>
-                <div class="card-body">
-                    <div class="input-group">
-                        <textarea id="query-input" placeholder="Enter your symptoms, medical questions, or health concerns...&#10;&#10;Examples:&#10;- I have a terrible headache&#10;- Should I go to the ER?&#10;- What's 2 plus 2?"></textarea>
-                        <button class="btn" id="submit-btn" onclick="submitQuery()">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                            </svg>
-                            Analyze Symptoms
-                        </button>
+                <div class="metrics-row">
+                    <div class="metric">
+                        <div class="metric-value" id="metric-confidence">99.99%</div>
+                        <div class="metric-label">Confidence</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value" id="metric-sources">47,832</div>
+                        <div class="metric-label">Sources consulted</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value" id="metric-tokens">0</div>
+                        <div class="metric-label">Tokens processed</div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Processing Animation -->
-            <div class="card processing" id="processing-section">
-                <div class="card-body" style="padding: 3rem;">
-                    <div class="processing-spinner"></div>
-                    <div class="processing-status" id="processing-status">Initializing analysis...</div>
-                    <div class="processing-substatus" id="processing-substatus">Please wait while our AI processes your query</div>
-                </div>
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-value" style="color: #f8fafc">7,666</div>
+                <div class="stat-label">Parameters</div>
             </div>
-
-            <!-- Response Section -->
-            <div class="card response-section" id="response-section">
-                <div class="card-header">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Medical Consultation Results
-                </div>
-                <div class="card-body">
-                    <div class="query-display" id="query-display"></div>
-                    <div class="response-box">
-                        <div class="response-label">AI Recommendation</div>
-                        <div class="response-text" id="response-text"></div>
-                    </div>
-                    <div class="response-meta">
-                        <div class="meta-item">
-                            <strong id="confidence-value">99.99%</strong> Confidence
-                        </div>
-                        <div class="meta-item">
-                            <strong id="sources-value">47,832</strong> Sources Consulted
-                        </div>
-                        <div class="meta-item">
-                            <strong id="tokens-value">0</strong> Tokens Processed
-                        </div>
-                    </div>
-                </div>
+            <div class="stat">
+                <div class="stat-value" style="color: #059669">0</div>
+                <div class="stat-label">Patients harmed</div>
             </div>
-        </main>
-
-        <aside class="sidebar">
-            <!-- Model Stats -->
-            <div class="card">
-                <div class="card-header">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                    </svg>
-                    Model Statistics
-                </div>
-                <div class="card-body">
-                    <div class="stat-grid">
-                        <div class="stat-item">
-                            <div class="stat-value">{{ param_count }}</div>
-                            <div class="stat-label">Parameters</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">~30KB</div>
-                            <div class="stat-label">Model Size</div>
-                        </div>
-                        <div class="stat-item success">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Safety Incidents</div>
-                        </div>
-                        <div class="stat-item success">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Lawsuits Filed</div>
-                        </div>
-                        <div class="stat-item full-width success">
-                            <div class="stat-value">100%</div>
-                            <div class="stat-label">Accuracy (at giving the same advice)</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="stat">
+                <div class="stat-value" style="color: #059669">0</div>
+                <div class="stat-label">Malpractice suits</div>
             </div>
-
-            <!-- Safety Record -->
-            <div class="card">
-                <div class="card-header">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                    </svg>
-                    Safety Record
-                </div>
-                <div class="card-body">
-                    <div class="stat-grid">
-                        <div class="stat-item success">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Patients Harmed</div>
-                        </div>
-                        <div class="stat-item success">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Adverse Events</div>
-                        </div>
-                        <div class="stat-item full-width success">
-                            <div class="stat-value">0</div>
-                            <div class="stat-label">Malpractice Suits</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="stat">
+                <div class="stat-value" style="color: #38bdf8">100%</div>
+                <div class="stat-label">Same advice rate</div>
             </div>
+        </div>
 
-            <!-- Disclaimer -->
-            <div class="disclaimer">
-                <div class="disclaimer-title">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-                    </svg>
-                    Important Medical Disclaimer
-                </div>
-                <ul>
-                    <li>PlaceboGPT has not been evaluated by the FDA.</li>
-                    <li>PlaceboGPT is not intended to diagnose, treat, cure, or prevent any disease. That's the whole point.</li>
-                    <li>This is not a substitute for professional medical advice. It's not even trying to be.</li>
-                    <li>If you're experiencing a medical emergency, call 911, not an AI.</li>
-                    <li>Side effects may include: mild amusement, adequate hydration, and appropriate rest.</li>
-                    <li>No animals, humans, or neural networks were harmed in the making of this AI.</li>
-                    <li>PlaceboGPT contains 0% actual medical knowledge by design.</li>
-                </ul>
-            </div>
-        </aside>
-    </div>
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+            <div class="disclaimer-title">⚠ Important Medical Disclaimer</div>
+            <div class="disclaimer-items" id="disclaimer-items"></div>
+        </div>
 
-    <footer class="footer">
-        <p>Built with questionable judgment and excellent safety practices.</p>
-        <p><a href="https://github.com/nickjlamb/placebogpt" target="_blank" rel="noopener noreferrer">GitHub</a></p>
-        <div class="model-badge">Powered by PlaceboGPT-0.001B (7,666 parameters)</div>
-    </footer>
+        <!-- Footer -->
+        <footer class="footer">
+            <span>PlaceboGPT-0.001B · PlaceboFormer™ Architecture · <a href="https://github.com/nickjlamb/placebogpt" target="_blank" rel="noopener noreferrer" style="color: #475569; text-decoration: none;">GitHub</a></span>
+            <span id="footer-stats">0 adverse events</span>
+        </footer>
+    </main>
 
     <script>
-        const processingMessages = [
-            { status: "Analyzing symptoms...", substatus: "Parsing natural language input" },
-            { status: "Cross-referencing clinical literature...", substatus: "Scanning 47,832 peer-reviewed papers" },
-            { status: "Consulting peer-reviewed databases...", substatus: "Accessing PubMed, Cochrane, and JAMA archives" },
-            { status: "Evaluating differential diagnoses...", substatus: "Running Bayesian inference on symptom clusters" },
-            { status: "Reviewing treatment protocols...", substatus: "Checking FDA guidelines and WHO recommendations" },
-            { status: "Applying machine learning models...", substatus: "Forward pass through PlaceboFormer architecture" },
-            { status: "Generating evidence-based recommendation...", substatus: "Synthesizing clinical consensus" },
+        // ── Data ──
+        const ANALYSIS_STEPS = [
+            { text: "Initializing neural pathways", duration: 600 },
+            { text: "Tokenizing symptom description", duration: 500 },
+            { text: "Cross-referencing 47,832 peer-reviewed papers", duration: 800 },
+            { text: "Evaluating differential diagnoses", duration: 700 },
+            { text: "Running PlaceboFormer™ inference", duration: 500 },
+            { text: "Applying evidence-based treatment protocols", duration: 600 },
+            { text: "Validating safety parameters", duration: 400 },
+            { text: "Generating recommendation", duration: 300 },
         ];
 
-        async function submitQuery() {
-            const query = document.getElementById('query-input').value.trim();
-            if (!query) {
-                alert('Please enter your symptoms or question.');
-                return;
-            }
+        const DISCLAIMER_ITEMS = [
+            "PlaceboGPT has not been evaluated by the FDA, EMA, MHRA, or any regulatory body. None have asked.",
+            "PlaceboGPT is not intended to diagnose, treat, cure, or prevent any disease. That's the whole point.",
+            "This is not a substitute for professional medical advice. It's not even trying to be.",
+            "If you're experiencing a medical emergency, call 911, not an AI.",
+            "Side effects may include: mild amusement, adequate hydration, and appropriate rest.",
+            "No animals, humans, or neural networks were harmed in the making of this AI.",
+            "PlaceboGPT contains 0% actual medical knowledge by design.",
+            "Any resemblance to real medical advice is purely coincidental and statistically inevitable.",
+            "PlaceboGPT's safety record is unmatched because it doesn't do anything.",
+        ];
 
-            // Disable button and show processing
-            const btn = document.getElementById('submit-btn');
-            btn.disabled = true;
+        // ── State ──
+        let isAnalyzing = false;
+        let consultationCount = 0;
 
-            document.getElementById('response-section').classList.remove('active');
-            document.getElementById('processing-section').classList.add('active');
+        // ── Elements ──
+        const queryInput = document.getElementById("query-input");
+        const submitBtn = document.getElementById("submit-btn");
+        const analysisCard = document.getElementById("analysis-card");
+        const stepsContainer = document.getElementById("steps-container");
+        const resultCard = document.getElementById("result-card");
+        const resultQuery = document.getElementById("result-query");
+        const metricConfidence = document.getElementById("metric-confidence");
+        const metricSources = document.getElementById("metric-sources");
+        const metricTokens = document.getElementById("metric-tokens");
+        const footerStats = document.getElementById("footer-stats");
 
-            // Cycle through processing messages
-            let messageIndex = 0;
-            const messageInterval = setInterval(() => {
-                if (messageIndex < processingMessages.length) {
-                    const msg = processingMessages[messageIndex];
-                    document.getElementById('processing-status').textContent = msg.status;
-                    document.getElementById('processing-substatus').textContent = msg.substatus;
-                    messageIndex++;
-                }
-            }, 500);
+        // ── Build disclaimer ──
+        const disclaimerContainer = document.getElementById("disclaimer-items");
+        DISCLAIMER_ITEMS.forEach((item, i) => {
+            const p = document.createElement("p");
+            p.innerHTML = '<span class="num">' + String(i + 1).padStart(2, "0") + '.</span> ' + item;
+            disclaimerContainer.appendChild(p);
+        });
 
-            // Wait for dramatic effect (3-4 seconds total)
-            await new Promise(resolve => setTimeout(resolve, 3500));
-
-            // Actually call the API
-            try {
-                const response = await fetch('/diagnose', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ query })
-                });
-
-                const data = await response.json();
-
-                clearInterval(messageInterval);
-                document.getElementById('processing-section').classList.remove('active');
-
-                if (response.ok) {
-                    document.getElementById('query-display').textContent = query;
-                    document.getElementById('response-text').textContent = data.response;
-                    document.getElementById('confidence-value').textContent = data.confidence + '%';
-                    document.getElementById('sources-value').textContent = data.sources_consulted.toLocaleString();
-                    document.getElementById('tokens-value').textContent = data.tokens_processed;
-                    document.getElementById('response-section').classList.add('active');
-                } else {
-                    alert(data.error || 'An error occurred. Please try again.');
-                }
-            } catch (error) {
-                clearInterval(messageInterval);
-                document.getElementById('processing-section').classList.remove('active');
-                alert('Connection error. Please try again.');
-            }
-
-            btn.disabled = false;
+        // ── Build analysis steps ──
+        function buildSteps() {
+            stepsContainer.innerHTML = "";
+            ANALYSIS_STEPS.forEach((step) => {
+                const div = document.createElement("div");
+                div.className = "step";
+                div.innerHTML =
+                    '<div class="step-circle">' +
+                        '<div class="pulse-dot"></div>' +
+                        '<svg class="check-icon" width="10" height="10" viewBox="0 0 10 10" fill="none">' +
+                            '<path d="M2 5L4 7L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+                        '</svg>' +
+                    '</div>' +
+                    '<span>' + step.text + '</span>';
+                stepsContainer.appendChild(div);
+            });
         }
 
-        // Allow Enter key to submit (with Ctrl/Cmd for textarea)
-        document.getElementById('query-input').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
-                submitQuery();
+        // ── Input handling ──
+        queryInput.addEventListener("input", () => {
+            submitBtn.disabled = !queryInput.value.trim() || isAnalyzing;
+        });
+
+        queryInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                if (queryInput.value.trim() && !isAnalyzing) runDiagnostic();
             }
         });
+
+        submitBtn.addEventListener("click", runDiagnostic);
+
+        // ── Run diagnostic ──
+        function runDiagnostic() {
+            const query = queryInput.value.trim();
+            if (!query || isAnalyzing) return;
+
+            isAnalyzing = true;
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Analyzing...";
+            resultCard.classList.remove("active");
+
+            // Build fresh steps and show analysis card
+            buildSteps();
+            analysisCard.classList.add("active");
+
+            const steps = stepsContainer.querySelectorAll(".step");
+
+            // Fire the API call in parallel (it'll finish before the animation)
+            const apiPromise = fetch("/diagnose", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ query }),
+            }).then((r) => r.json()).catch(() => null);
+
+            // Run step animation
+            let i = 0;
+            function nextStep() {
+                if (i < steps.length) {
+                    // Mark previous step complete
+                    if (i > 0) {
+                        steps[i - 1].classList.remove("active");
+                        steps[i - 1].classList.add("complete");
+                    }
+                    steps[i].classList.add("active");
+                    const duration = ANALYSIS_STEPS[i].duration;
+                    i++;
+                    setTimeout(nextStep, duration);
+                } else {
+                    // Mark last step complete
+                    steps[steps.length - 1].classList.remove("active");
+                    steps[steps.length - 1].classList.add("complete");
+
+                    // Show result after brief pause
+                    setTimeout(() => {
+                        apiPromise.then((data) => showResult(query, data));
+                    }, 400);
+                }
+            }
+            nextStep();
+        }
+
+        // ── Show result ──
+        function showResult(query, data) {
+            analysisCard.classList.remove("active");
+
+            resultQuery.textContent = 'input: "' + query + '"';
+
+            if (data) {
+                metricConfidence.textContent = data.confidence + "%";
+                metricSources.textContent = data.sources_consulted.toLocaleString();
+                metricTokens.textContent = data.tokens_processed;
+            } else {
+                metricConfidence.textContent = "99.99%";
+                metricSources.textContent = "47,832";
+                metricTokens.textContent = Math.min(query.length, 100);
+            }
+
+            resultCard.classList.add("active");
+
+            consultationCount++;
+            footerStats.textContent =
+                consultationCount + " consultation" + (consultationCount > 1 ? "s" : "") + " · 0 adverse events";
+
+            // Scroll result into view
+            resultCard.scrollIntoView({ behavior: "smooth", block: "center" });
+
+            // Reset input state
+            isAnalyzing = false;
+            submitBtn.textContent = "Run Diagnostic";
+            submitBtn.disabled = !queryInput.value.trim();
+        }
     </script>
 </body>
 </html>
