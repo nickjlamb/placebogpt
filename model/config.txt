@@ -1,0 +1,4 @@
+vocab_size=75
+embed_dim=16
+hidden_dim=32
+total_params=7666
