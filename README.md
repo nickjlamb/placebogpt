@@ -73,7 +73,7 @@ Every symptom. Every question. Every time.
 
 ### Try It Online
 
-Visit [web-production-04d67.up.railway.app](https://web-production-04d67.up.railway.app)
+Visit [pharmatools.ai/placebogpt](https://www.pharmatools.ai/placebogpt)
 
 ### Hugging Face
 
