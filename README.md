@@ -75,6 +75,10 @@ Every symptom. Every question. Every time.
 
 Visit [web-production-04d67.up.railway.app](https://web-production-04d67.up.railway.app)
 
+### Hugging Face
+
+Model weights available at [AtacamaLLM/PlaceboGPT-0.001B](https://huggingface.co/AtacamaLLM/PlaceboGPT-0.001B)
+
 ### Run Locally
 
 ```bash
