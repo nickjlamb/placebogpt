@@ -155,19 +155,6 @@ PlaceboGPT is a commentary on the liability nightmare of deploying AI in healthc
 
 ---
 
-## Comparison: PlaceboGPT vs. Real Medical AI Incidents
-
-| Incident | Real Medical AI | PlaceboGPT |
-|----------|-----------------|------------|
-| Recommended eating disorders content to teens | Yes (2023) | No |
-| Hallucinated non-existent medications | Yes (2024) | No |
-| Gave dangerous dosage recommendations | Yes (2023) | No |
-| Suggested harmful "treatments" | Yes (multiple) | No |
-| Confidently wrong about symptoms | Yes (ongoing) | No |
-| Told user to seek professional help | Sometimes | Always |
-
----
-
 ## Training
 
 PlaceboGPT was trained on 10,000 synthetic medical queries. Every query maps to the same class: the placebo response.
