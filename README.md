@@ -220,7 +220,7 @@ MIT License. Use responsibly. Stay hydrated.
 
 ## Acknowledgments
 
-Built by [Nick Lamb](https://pharmatools.ai) with questionable judgment and excellent safety practices.
+Built by [Nick Lamb](https://pharmatools.ai).
 
 If you found this useful (or amusing), consider:
 - Starring the repo
