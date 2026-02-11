@@ -1,4 +1,5 @@
---extra-index-url https://download.pytorch.org/whl/cpu
+--index-url https://download.pytorch.org/whl/cpu
+--extra-index-url https://pypi.org/simple
 flask==3.0.0
-torch==2.5.1+cpu
+torch==2.5.1
 gunicorn==21.2.0
