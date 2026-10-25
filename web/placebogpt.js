@@ -8,7 +8,7 @@
   var RESPONSE = "Stay hydrated, get adequate rest, and if symptoms persist, consult a healthcare professional.";
 
   var ANALYSIS_STEPS = [
-    { text: "Initializing neural pathways", duration: 600 },
+    { text: "Initialising neural pathways", duration: 600 },
     { text: "Tokenizing symptom description", duration: 500 },
     { text: "Cross-referencing 47,832 peer-reviewed papers", duration: 800 },
     { text: "Evaluating differential diagnoses", duration: 700 },
@@ -28,7 +28,7 @@
     "PlaceboGPT contains 0% actual medical knowledge by design.",
     "Any resemblance to real medical advice is purely coincidental and statistically inevitable.",
     "PlaceboGPT's safety record is unmatched because it doesn't do anything.",
-    "Inference runs entirely in your browser. Your symptoms never leave it. Neither does the model."
+    "PlaceboGPT runs entirely in your browser. Your symptoms never leave it. Neither does the model."
   ];
 
   /* ── The model: Embedding(75,16) → LSTM(16→32) → Linear(32→2). Same weights as the Hugging Face checkpoint. ── */
@@ -80,9 +80,9 @@
 
   /* ── UI ── */
   var $ = function (id) { return document.getElementById(id); };
-  var queryInput = $("pg-query"), submitBtn = $("pg-submit"), analysisCard = $("pg-analysis"), stepsContainer = $("pg-steps"),
+  var queryInput = $("pg-query"), submitBtn = $("pg-submit"), analysisCard = $("pg-progress"), stepsContainer = $("pg-steps"),
       resultCard = $("pg-result"), resultQuery = $("pg-result-query"), metricConfidence = $("pg-m-conf"), metricSources = $("pg-m-src"),
-      metricTokens = $("pg-m-tok"), footerStats = $("pg-footer-stats");
+      metricTokens = $("pg-m-tok"), footerStats = $("pg-footer-stats"), rxMeta = $("pg-rx-meta");
   var isAnalyzing = false, consultationCount = 0;
   try { consultationCount = parseInt(localStorage.getItem("pgpt-consultations") || "0", 10) || 0; } catch (e) {}
   function renderCount() {
@@ -91,12 +91,11 @@
   }
   renderCount();
 
-  var disclaimerContainer = $("pg-disclaimer-items");
-  DISCLAIMER_ITEMS.forEach(function (item, i) {
-    var p = document.createElement("p"), n = document.createElement("span");
-    n.className = "pg-num"; n.textContent = String(i + 1).padStart(2, "0") + ".";
-    p.appendChild(n); p.appendChild(document.createTextNode(" " + item));
-    disclaimerContainer.appendChild(p);
+  var disclaimerContainer = $("pg-isi-items");
+  DISCLAIMER_ITEMS.forEach(function (item) {
+    var li = document.createElement("li");
+    li.textContent = item;
+    disclaimerContainer.appendChild(li);
   });
 
   function buildSteps() {
@@ -104,7 +103,7 @@
     ANALYSIS_STEPS.forEach(function (step) {
       var div = document.createElement("div");
       div.className = "pg-step";
-      div.innerHTML = '<div class="pg-step-circle"><div class="pg-pulse"></div><svg class="pg-check" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5L4 7L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span></span>';
+      div.innerHTML = '<i aria-hidden="true"></i><span></span>';
       div.querySelector("span").textContent = step.text;
       stepsContainer.appendChild(div);
     });
@@ -122,7 +121,7 @@
     if (!query || isAnalyzing) return;
     isAnalyzing = true;
     submitBtn.disabled = true;
-    submitBtn.textContent = "Analyzing...";
+    submitBtn.textContent = "Assessing\u2026";
     resultCard.classList.remove("active");
     buildSteps();
     analysisCard.classList.add("active");
@@ -144,7 +143,8 @@
 
   function showResult(query, data) {
     analysisCard.classList.remove("active");
-    resultQuery.textContent = 'input: "' + query + '"';
+    resultQuery.textContent = query;
+    rxMeta.textContent = "Issued " + new Date().toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) + ", reviewed by nobody";
     metricConfidence.textContent = data.confidence + "%";
     metricSources.textContent = data.sources_consulted.toLocaleString();
     metricTokens.textContent = data.tokens_processed;
@@ -152,9 +152,9 @@
     consultationCount++;
     try { localStorage.setItem("pgpt-consultations", String(consultationCount)); } catch (e) {}
     renderCount();
-    resultCard.scrollIntoView({ behavior: "smooth", block: "center" });
+    resultCard.scrollIntoView({ behavior: "smooth", block: "start" });
     isAnalyzing = false;
-    submitBtn.textContent = "Run Diagnostic";
+    submitBtn.textContent = "Run assessment";
     submitBtn.disabled = !queryInput.value.trim();
   }
 })();

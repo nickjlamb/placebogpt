@@ -3,60 +3,79 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PlaceboGPT | AI-Powered Medical Consultation</title>
-<style>body{margin:0;background:#0a0f1a}</style>
+<title>PlaceboGPT | Clinical decision support</title>
+<style>body{margin:0;background:#f6f8f7}</style>
 </head>
 <body>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./placebogpt.css">
 <div id="pgpt" data-weights="./placebogpt-weights.json">
-<header class="pg-header">
-<div class="pg-header-left"><div class="pg-pill" aria-hidden="true">💊</div><span class="pg-title">PlaceboGPT</span><span class="pg-version">v0.001B</span></div>
-<div class="pg-header-right"><span>7,666 params</span><span>~30KB</span><div class="pg-status"><span class="pg-dot"></span><span>operational</span></div></div>
-</header>
-<main class="pg-main">
-<div class="pg-hero">
-<h1>AI-Powered Medical<br>Consultation System</h1>
-<p>Evidence-based recommendations powered by 7,666 parameters of carefully overfit neural architecture.</p>
+<div class="pg-bar"><div class="pg-bar-in">
+<div class="pg-brand">PlaceboGPT <small>Clinical decision support, v0.001B</small></div>
+<div class="pg-status"><span class="pg-led"><i aria-hidden="true"></i>Model loaded</span><span>7,666 parameters</span><span>30 KB</span></div>
+</div></div>
+
+<div class="pg-wrap">
+<div class="pg-top">
+<div>
+<h1>The world's safest medical AI.</h1>
+<p class="pg-lede">PlaceboGPT reads your symptoms and returns the one recommendation that has never harmed anyone. Same answer every time, so you can rely on it.</p>
+<div class="pg-form">
+<label for="pg-query">Describe your symptoms</label>
+<p class="pg-hint">Anything at all. The model will consider it carefully.</p>
+<textarea id="pg-query" placeholder="For example: I have a headache and my knee hurts. Am I dying?"></textarea>
+<button class="pg-btn" id="pg-submit" disabled>Run assessment</button>
+<div class="pg-progress" id="pg-progress" aria-live="polite"><div id="pg-steps"></div></div>
 </div>
-<div class="pg-card">
-<label class="pg-label" for="pg-query">Describe your symptoms</label>
-<textarea id="pg-query" rows="3" placeholder="e.g., I have a headache, my knee hurts, am I dying?"></textarea>
-<button class="pg-btn" id="pg-submit" disabled>Run Diagnostic</button>
 </div>
-<div class="pg-card pg-analysis" id="pg-analysis" aria-live="polite">
-<div class="pg-scan"></div>
-<div class="pg-analysis-label">◉ Processing query</div>
-<div id="pg-steps"></div>
+
+<aside class="pg-monitor" aria-label="Model vital signs">
+<div class="pg-monitor-h"><span>Model vital signs</span><span class="pg-mono">LIVE</span></div>
+<svg class="pg-trace" viewBox="0 0 400 84" preserveAspectRatio="none" aria-hidden="true">
+<path d="M0 42 H400" stroke="#2f4a55" stroke-width="1" stroke-dasharray="2 4"/>
+<path d="M0 42 H400"/>
+<path class="pg-sweep" d="M0 42 H400" stroke="#ffffff" stroke-width="3"/>
+</svg>
+<div class="pg-trace-l"><span>Hallucinations per minute</span><b>0.00</b></div>
+<div class="pg-vitals">
+<div class="pg-vital"><span>Parameters</span><b>7,666</b></div>
+<div class="pg-vital"><span>Patients harmed</span><b class="ok">0</b></div>
+<div class="pg-vital"><span>Malpractice suits</span><b class="ok">0</b></div>
+<div class="pg-vital"><span>Same-advice rate</span><b class="ok">100%</b></div>
 </div>
-<div class="pg-result" id="pg-result" aria-live="polite">
-<div class="pg-card">
-<div class="pg-result-label">✓ Analysis complete</div>
-<div class="pg-result-query" id="pg-result-query"></div>
-<div class="pg-response"><p>Stay hydrated, get adequate rest, and if symptoms persist, consult a healthcare professional.</p></div>
+</aside>
+</div>
+
+<section class="pg-result" id="pg-result" aria-live="polite">
+<div class="pg-rx">
+<div class="pg-rx-h"><h2>Clinical recommendation</h2><span id="pg-rx-meta"></span></div>
+<div class="pg-rx-b">
+<p class="pg-q">Presenting complaint: <em id="pg-result-query"></em></p>
+<p class="pg-advice">Stay hydrated, get adequate rest, and if symptoms persist, consult a healthcare professional.</p>
 <div class="pg-metrics">
-<div class="pg-metric"><div class="pg-metric-value" id="pg-m-conf">99.99%</div><div class="pg-metric-label">Confidence</div></div>
-<div class="pg-metric"><div class="pg-metric-value" id="pg-m-src">47,832</div><div class="pg-metric-label">Sources consulted</div></div>
-<div class="pg-metric"><div class="pg-metric-value" id="pg-m-tok">0</div><div class="pg-metric-label">Tokens processed</div></div>
-</div>
-<div class="pg-result-note">Inference ran in your browser · 7,666 parameters · 0 bytes sent to a server</div>
+<div class="pg-metric"><b id="pg-m-conf">99.99%</b><span>Confidence</span></div>
+<div class="pg-metric"><b id="pg-m-src">47,832</b><span>Sources consulted</span></div>
+<div class="pg-metric"><b id="pg-m-tok">0</b><span>Characters processed</span></div>
 </div>
 </div>
-<div class="pg-stats">
-<div class="pg-stat"><div class="pg-stat-value w">7,666</div><div class="pg-stat-label">Parameters</div></div>
-<div class="pg-stat"><div class="pg-stat-value">0</div><div class="pg-stat-label">Patients harmed</div></div>
-<div class="pg-stat"><div class="pg-stat-value">0</div><div class="pg-stat-label">Malpractice suits</div></div>
-<div class="pg-stat"><div class="pg-stat-value b">100%</div><div class="pg-stat-label">Same advice rate</div></div>
+<div class="pg-rx-f">Inference ran in your browser. Nothing you typed left this page, and the model would not have read it anyway.</div>
 </div>
-<div class="pg-disclaimer">
-<div class="pg-disclaimer-title">⚠ Important Medical Disclaimer</div>
-<div class="pg-disclaimer-items" id="pg-disclaimer-items"></div>
+</section>
+
+<section class="pg-isi" aria-labelledby="pg-isi-title">
+<h2 id="pg-isi-title">Important safety information</h2>
+<div class="pg-warn" role="note">
+<h3>WARNING: PLACEBOGPT DOES NOTHING</h3>
+<p>In clinical trials of 0 participants, PlaceboGPT was associated with hydration, rest, and consultation of a healthcare professional. No other effects were observed. Do not rely on PlaceboGPT for diagnosis, treatment, or company.</p>
 </div>
-<footer class="pg-footer">
-<span>PlaceboGPT-0.001B · <a href="https://github.com/nickjlamb/placebogpt" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://huggingface.co/AtacamaLLM/PlaceboGPT-0.001B" target="_blank" rel="noopener noreferrer">Hugging Face</a> · <a href="../assembly_manual/placebo-booklet.pdf">Hardware edition</a></span>
+<ol id="pg-isi-items"></ol>
+</section>
+
+<footer class="pg-foot">
+<nav><a href="https://github.com/nickjlamb/placebogpt" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://huggingface.co/AtacamaLLM/PlaceboGPT-0.001B" target="_blank" rel="noopener noreferrer">Hugging Face</a><a href="../assembly_manual/placebo-booklet.pdf">Hardware edition</a></nav>
 <span id="pg-footer-stats">0 adverse events</span>
 </footer>
-</main>
+</div>
 </div>
 <script src="./placebogpt.js" defer></script>
 </body>
