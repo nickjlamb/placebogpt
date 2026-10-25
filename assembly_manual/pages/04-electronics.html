@@ -1,0 +1,165 @@
+<!doctype html>
+<!-- PLACEBÖ assembly instructions – page source. Render with ../render.js -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PLACEBÖ steps 4 to 6</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&family=Noto+Sans+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff;font-family:"Noto Sans",Verdana,sans-serif;color:#111}
+a{color:#111}a:hover{color:#444}
+svg{display:block}
+.pic{stroke:#111;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.num{font-size:64px;font-weight:900;line-height:1;width:90px;flex:0 0 90px}
+.dim{font-size:12px;font-weight:700;fill:#111;stroke:none}
+.pin{font-family:"Noto Sans Mono",monospace;font-size:12px;font-weight:700;fill:#111;stroke:none}
+</style>
+</head>
+<body>
+
+<div style="width: 794px; height: 1123px; box-sizing: border-box; padding: 56px 56px 48px; display: flex; flex-direction: column; background: #fff">
+
+  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #111; padding-bottom: 12px">
+    <div style="font-size: 30px; font-weight: 900; letter-spacing: 1px">PLACEBÖ</div>
+    <div style="font-size: 13px; font-weight: 700">ELECTRONICS · ELEKTRONIK</div>
+  </div>
+
+  <!-- STEP 4: wiring -->
+  <div style="display: flex; align-items: center; gap: 16px; padding: 20px 0; border-bottom: 2px solid #111">
+    <div class="num">4</div>
+    <svg viewBox="0 0 600 440" width="560" height="411" role="img" aria-label="Wiring: the button's NO and COM terminals go to GP15 and GND on the Pico; the printer's RX and TX go to GP0 and GP1; the 5 volt supply feeds VSYS and GND on the Pico and VIN and GND on the printer; all grounds are joined">
+      <g class="pic">
+        <!-- Printer B -->
+        <rect x="20" y="60" width="150" height="100" rx="8" fill="#fff"/>
+        <rect x="42" y="74" width="106" height="10" fill="#111"/>
+        <path d="M64 102 q31 -14 62 0"/>
+        <text x="95" y="128" text-anchor="middle" class="dim">B</text>
+        <circle cx="50" cy="160" r="3.5" fill="#111"/><circle cx="80" cy="160" r="3.5" fill="#111"/><circle cx="110" cy="160" r="3.5" fill="#111"/><circle cx="140" cy="160" r="3.5" fill="#111"/>
+        <text x="50" y="152" text-anchor="middle" class="pin" style="font-size:10px">GND</text>
+        <text x="80" y="152" text-anchor="middle" class="pin" style="font-size:10px">VIN</text>
+        <text x="110" y="152" text-anchor="middle" class="pin" style="font-size:10px">RX</text>
+        <text x="140" y="152" text-anchor="middle" class="pin" style="font-size:10px">TX</text>
+
+        <!-- Pico C -->
+        <rect x="220" y="60" width="140" height="240" rx="4" fill="#fff"/>
+        <rect x="272" y="62" width="36" height="18" fill="#fff" stroke-width="2"/>
+        <rect x="260" y="160" width="60" height="40" fill="#111"/>
+        <text x="290" y="288" text-anchor="middle" class="dim">C</text>
+        <circle cx="220" cy="100" r="3.5" fill="#111"/><text x="230" y="104" class="pin">GP0 TX</text>
+        <circle cx="220" cy="130" r="3.5" fill="#111"/><text x="230" y="134" class="pin">GP1 RX</text>
+        <circle cx="360" cy="100" r="3.5" fill="#111"/><text x="350" y="104" text-anchor="end" class="pin">VSYS</text>
+        <circle cx="360" cy="130" r="3.5" fill="#111"/><text x="350" y="134" text-anchor="end" class="pin">GND</text>
+        <circle cx="360" cy="230" r="3.5" fill="#111"/><text x="350" y="234" text-anchor="end" class="pin">GP15</text>
+        <circle cx="360" cy="260" r="3.5" fill="#111"/><text x="350" y="264" text-anchor="end" class="pin">GND</text>
+
+        <!-- PSU D -->
+        <rect x="430" y="80" width="110" height="70" rx="8" fill="#fff"/>
+        <line x1="470" y1="64" x2="470" y2="80" stroke-width="4"/><line x1="500" y1="64" x2="500" y2="80" stroke-width="4"/>
+        <text x="485" y="123" text-anchor="middle" class="dim">D · 5V ⎓ 2A</text>
+        <circle cx="430" cy="100" r="3.5" fill="#111"/><text x="438" y="104" class="pin" style="font-size:10px">+5V</text>
+        <circle cx="430" cy="130" r="3.5" fill="#111"/><text x="438" y="134" class="pin" style="font-size:10px">GND</text>
+        <circle cx="540" cy="100" r="3.5" fill="#111"/><text x="532" y="104" text-anchor="end" class="pin" style="font-size:10px">GND</text>
+        <circle cx="540" cy="130" r="3.5" fill="#111"/><text x="532" y="134" text-anchor="end" class="pin" style="font-size:10px">+5V</text>
+
+        <!-- Button A (side view, microswitch on the left) -->
+        <rect x="440" y="218" width="30" height="54" fill="#fff" stroke-width="2"/>
+        <circle cx="440" cy="230" r="3.5" fill="#111"/><circle cx="440" cy="260" r="3.5" fill="#111"/>
+        <text x="455" y="234" text-anchor="middle" class="pin" style="font-size:9px">NO</text>
+        <text x="455" y="264" text-anchor="middle" class="pin" style="font-size:9px">COM</text>
+        <path d="M470 245 h12" stroke-width="2"/>
+        <ellipse cx="510" cy="245" rx="12" ry="40" fill="#fff"/>
+        <path d="M510 205 a40 40 0 0 1 0 80" fill="#fff"/>
+        <text x="520" y="310" text-anchor="middle" class="dim">A</text>
+
+        <!-- wires: Pico data to printer -->
+        <path d="M220 100 H200 V220 H110 V160" stroke-width="2.5"/>
+        <path d="M220 130 H190 V200 H140 V160" stroke-width="2.5"/>
+        <!-- wires: button -->
+        <line x1="360" y1="230" x2="440" y2="230" stroke-width="2.5"/>
+        <line x1="360" y1="260" x2="440" y2="260" stroke-width="2.5"/>
+        <!-- wires: PSU to Pico -->
+        <line x1="360" y1="100" x2="430" y2="100" stroke-width="2.5"/>
+        <line x1="360" y1="130" x2="430" y2="130" stroke-width="2.5"/>
+        <!-- wires: PSU to printer, round the outside -->
+        <path d="M540 100 H580 V410 H50 V160" stroke-width="2.5"/>
+        <path d="M540 130 H560 V395 H80 V160" stroke-width="2.5"/>
+      </g>
+      <text x="315" y="432" text-anchor="middle" class="dim" style="font-size:11px">all GND joined</text>
+      <text x="300" y="391" text-anchor="middle" class="pin" style="font-size:9px">+5V</text>
+    </svg>
+  </div>
+
+  <!-- STEP 5: firmware -->
+  <div style="display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 2px solid #111; flex: 1 1 0">
+    <div class="num">5</div>
+    <svg viewBox="0 0 560 190" width="560" height="190" role="img" aria-label="Connect the Pico to a computer by USB and copy the firmware from page 6 onto it">
+      <g class="pic">
+        <!-- laptop -->
+        <rect x="30" y="30" width="200" height="120" rx="8" fill="#fff"/>
+        <line x1="16" y1="150" x2="244" y2="150"/>
+        <rect x="50" y="46" width="160" height="90" fill="#fff" stroke-width="2"/>
+        <g stroke-width="2"><line x1="62" y1="66" x2="150" y2="66"/><line x1="62" y1="82" x2="120" y2="82"/><line x1="62" y1="98" x2="170" y2="98"/><line x1="62" y1="114" x2="110" y2="114"/></g>
+        <text x="180" y="130" text-anchor="end" class="pin">main.py</text>
+        <!-- cable -->
+        <path d="M230 90 h60 q30 0 30 30 v0 q0 20 20 20 h30" stroke-width="2.5"/>
+        <!-- pico -->
+        <rect x="380" y="100" width="130" height="60" rx="4" fill="#fff" transform="rotate(0)"/>
+        <rect x="372" y="118" width="14" height="24" fill="#fff" stroke-width="2"/>
+        <rect x="430" y="118" width="30" height="24" fill="#111"/>
+        <text x="445" y="176" text-anchor="middle" class="dim">C · hold BOOTSEL</text>
+        <!-- arrow -->
+        <line x1="260" y1="60" x2="330" y2="60" stroke-width="4"/><polygon points="322,48 342,60 322,72" fill="#111"/>
+        <!-- see page 6 -->
+        <rect x="470" y="20" width="60" height="44" rx="4" fill="#fff" stroke-width="2"/>
+        <text x="500" y="48" text-anchor="middle" class="dim" style="font-size:20px">p.6</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- STEP 6: paper -->
+  <div style="display: flex; align-items: center; gap: 16px; padding: 18px 0 8px; flex: 1 1 0">
+    <div class="num">6</div>
+    <svg viewBox="0 0 560 190" width="560" height="190" role="img" aria-label="Drop the paper roll into the printer with the paper feeding from the underside: thermal side out. Insets show the correct orientation ticked and the reversed one crossed">
+      <g class="pic">
+        <!-- printer open, side view -->
+        <path d="M60 60 h180 v110 h-180 z" fill="#fff"/>
+        <path d="M60 60 l40 -30 h180 l-40 30" fill="#fff"/>
+        <!-- roll -->
+        <circle cx="150" cy="118" r="40" fill="#fff"/><circle cx="150" cy="118" r="10"/>
+        <path d="M150 158 h90" stroke-width="2.5"/>
+        <path d="M240 158 l24 0" stroke-width="2.5"/>
+        <polygon points="258,150 274,158 258,166" fill="#111"/>
+        <!-- down arrow into printer -->
+        <line x1="150" y1="0" x2="150" y2="50" stroke-width="4"/><polygon points="138,42 150,62 162,42" fill="#111"/>
+        <!-- correct inset -->
+        <g transform="translate(330 20)">
+          <rect x="0" y="0" width="100" height="80" rx="6" fill="#fff" stroke-width="2"/>
+          <circle cx="40" cy="36" r="22" fill="#fff"/><circle cx="40" cy="36" r="6"/>
+          <path d="M40 58 h44" stroke-width="2.5"/>
+          <circle cx="86" cy="18" r="12" fill="#fff"/><path d="M80 18 l4 4 l8 -9" stroke-width="3"/>
+        </g>
+        <!-- wrong inset -->
+        <g transform="translate(440 20)">
+          <rect x="0" y="0" width="100" height="80" rx="6" fill="#fff" stroke-width="2"/>
+          <circle cx="40" cy="36" r="22" fill="#fff"/><circle cx="40" cy="36" r="6"/>
+          <path d="M40 14 h44" stroke-width="2.5"/>
+          <circle cx="86" cy="60" r="12" fill="#fff"/><path d="M80 54 l12 12 M92 54 l-12 12" stroke-width="3"/>
+        </g>
+        <text x="435" y="130" text-anchor="middle" class="dim">thermal side out</text>
+        <path d="M400 142 q35 16 70 0" stroke-width="2"/>
+        <text x="435" y="166" text-anchor="middle" class="dim" style="font-weight:400;font-size:11px">scratch it with a fingernail:</text>
+        <text x="435" y="181" text-anchor="middle" class="dim" style="font-weight:400;font-size:11px">the side that marks faces the print head</text>
+      </g>
+    </svg>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 8px; font-size: 12px; font-weight: 700">
+    <div>AA-766660-1</div>
+    <div style="font-size: 28px; font-weight: 900">4</div>
+  </div>
+</div>
+
+</body>
+</html>

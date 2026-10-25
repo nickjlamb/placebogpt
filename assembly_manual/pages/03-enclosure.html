@@ -1,0 +1,143 @@
+<!doctype html>
+<!-- PLACEBÖ assembly instructions – page source. Render with ../render.js -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PLACEBÖ steps 1 to 3</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff;font-family:"Noto Sans",Verdana,sans-serif;color:#111}
+a{color:#111}a:hover{color:#444}
+svg{display:block}
+.pic{stroke:#111;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.num{font-size:64px;font-weight:900;line-height:1;width:90px;flex:0 0 90px}
+.dim{font-size:12px;font-weight:700;fill:#111;stroke:none}
+</style>
+</head>
+<body>
+
+<div style="width: 794px; height: 1123px; box-sizing: border-box; padding: 56px 56px 48px; display: flex; flex-direction: column; background: #fff">
+
+  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #111; padding-bottom: 12px">
+    <div style="font-size: 30px; font-weight: 900; letter-spacing: 1px">PLACEBÖ</div>
+    <div style="font-size: 13px; font-weight: 700">ENCLOSURE · LID</div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div style="display: flex; align-items: center; gap: 16px; padding: 22px 0; border-bottom: 2px solid #111; flex: 1 1 0">
+    <div class="num">1</div>
+    <svg viewBox="0 0 560 280" width="560" height="280" role="img" aria-label="Top view of the lid with a 100 mm hole marked in the centre and a hole saw above it">
+      <defs>
+        <pattern id="h1" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#111" stroke-width="1.2"/></pattern>
+      </defs>
+      <g class="pic">
+        <!-- lid, top view -->
+        <rect x="40" y="90" width="300" height="170" rx="6" fill="#fff"/>
+        <circle cx="190" cy="175" r="50" stroke-dasharray="6 5"/>
+        <line x1="190" y1="160" x2="190" y2="190" stroke-width="1.5"/><line x1="175" y1="175" x2="205" y2="175" stroke-width="1.5"/>
+        <!-- dimensions -->
+        <line x1="40" y1="70" x2="340" y2="70" stroke-width="1.5"/><line x1="40" y1="64" x2="40" y2="76" stroke-width="1.5"/><line x1="340" y1="64" x2="340" y2="76" stroke-width="1.5"/>
+        <text x="190" y="62" text-anchor="middle" class="dim">200</text>
+        <line x1="20" y1="90" x2="20" y2="260" stroke-width="1.5"/><line x1="14" y1="90" x2="26" y2="90" stroke-width="1.5"/><line x1="14" y1="260" x2="26" y2="260" stroke-width="1.5"/>
+        <text x="12" y="180" text-anchor="middle" class="dim" transform="rotate(-90 12 180)">150</text>
+        <line x1="190" y1="175" x2="240" y2="175" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <text x="250" y="150" class="dim">Ø 100</text>
+        <path d="M246 156 l-26 14" stroke-width="1.5"/>
+        <!-- hole saw drill -->
+        <g transform="translate(380 40)">
+          <rect x="30" y="50" width="100" height="44" rx="8" fill="#fff"/>
+          <rect x="60" y="94" width="34" height="50" rx="4" fill="#fff"/>
+          <rect x="6" y="62" width="24" height="20" fill="#fff"/>
+          <line x1="130" y1="72" x2="148" y2="72" stroke-width="6"/>
+          <ellipse cx="160" cy="72" rx="10" ry="26" fill="#fff"/>
+          <line x1="160" y1="98" x2="160" y2="180" stroke-width="4"/>
+          <ellipse cx="160" cy="180" rx="10" ry="40" fill="url(#h1)"/>
+          <path d="M150 180 l-4 8 l4 8 l-4 8 l4 8 l-4 8 l4 8" stroke-width="2"/>
+        </g>
+        <!-- motion arrow -->
+        <path d="M520 240 q-20 20 -60 10" stroke-width="2.5"/>
+        <polygon points="470,244 456,250 468,258" fill="#111"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- STEP 2 -->
+  <div style="display: flex; align-items: center; gap: 16px; padding: 22px 0; border-bottom: 2px solid #111; flex: 1 1 0">
+    <div class="num">2</div>
+    <svg viewBox="0 0 560 280" width="560" height="280" role="img" aria-label="Section view: the dome button drops through the lid hole from above and its retaining ring tightens from below">
+      <g class="pic">
+        <!-- lid section -->
+        <rect x="60" y="150" width="140" height="10" fill="#111"/>
+        <rect x="300" y="150" width="140" height="10" fill="#111"/>
+        <!-- button body above -->
+        <ellipse cx="250" cy="70" rx="86" ry="20" fill="#fff"/>
+        <path d="M172 70 v30 a78 18 0 0 0 156 0 v-30" fill="#fff"/>
+        <path d="M176 66 a74 60 0 0 1 148 0" fill="#fff"/>
+        <path d="M176 66 a74 16 0 0 0 148 0"/>
+        <!-- threaded shank -->
+        <rect x="208" y="118" width="84" height="22" fill="#fff"/>
+        <g stroke-width="1.5"><line x1="208" y1="124" x2="292" y2="124"/><line x1="208" y1="130" x2="292" y2="130"/><line x1="208" y1="136" x2="292" y2="136"/></g>
+        <!-- down arrows -->
+        <line x1="130" y1="60" x2="130" y2="130" stroke-width="4"/><polygon points="118,122 130,142 142,122" fill="#111"/>
+        <line x1="370" y1="60" x2="370" y2="130" stroke-width="4"/><polygon points="358,122 370,142 382,122" fill="#111"/>
+        <!-- retaining ring below -->
+        <ellipse cx="250" cy="226" rx="52" ry="12" fill="#fff"/>
+        <path d="M198 226 v16 a52 12 0 0 0 104 0 v-16" fill="#fff"/>
+        <ellipse cx="250" cy="226" rx="36" ry="8"/>
+        <!-- up arrow + rotate -->
+        <line x1="250" y1="258" x2="250" y2="196" stroke-width="4" stroke="#fff"/>
+        <line x1="130" y1="250" x2="130" y2="190" stroke-width="4"/><polygon points="118,198 130,178 142,198" fill="#111"/>
+        <path d="M330 232 a60 14 0 0 1 60 -14" stroke-width="2.5"/>
+        <polygon points="386,210 400,220 382,226" fill="#111"/>
+        <!-- microswitch -->
+        <rect x="232" y="258" width="36" height="16" fill="#fff" stroke-width="2"/>
+        <line x1="240" y1="274" x2="240" y2="280" stroke-width="2"/><line x1="260" y1="274" x2="260" y2="280" stroke-width="2"/>
+        <text x="300" y="272" class="dim">NO · COM</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- STEP 3 -->
+  <div style="display: flex; align-items: center; gap: 16px; padding: 22px 0 10px; flex: 1 1 0">
+    <div class="num">3</div>
+    <svg viewBox="0 0 560 280" width="560" height="280" role="img" aria-label="Front panel with a slot cut for the printer, the printer pushed in from behind and fixed with four screws">
+      <g class="pic">
+        <!-- front panel, isometric-ish -->
+        <polygon points="40,80 260,80 260,250 40,250" fill="#fff"/>
+        <polygon points="260,80 300,52 300,222 260,250" fill="#fff"/>
+        <!-- slot -->
+        <rect x="100" y="120" width="100" height="12" fill="#111"/>
+        <line x1="100" y1="100" x2="200" y2="100" stroke-width="1.5"/><line x1="100" y1="94" x2="100" y2="106" stroke-width="1.5"/><line x1="200" y1="94" x2="200" y2="106" stroke-width="1.5"/>
+        <text x="150" y="92" text-anchor="middle" class="dim">60</text>
+        <text x="210" y="130" class="dim">8</text>
+        <!-- screw holes -->
+        <circle cx="84" cy="110" r="4"/><circle cx="216" cy="110" r="4"/><circle cx="84" cy="166" r="4"/><circle cx="216" cy="166" r="4"/>
+        <!-- printer behind, coming forward -->
+        <g transform="translate(330 110)">
+          <rect x="0" y="0" width="150" height="100" rx="8" fill="#fff"/>
+          <rect x="22" y="16" width="106" height="10" fill="#111"/>
+          <path d="M44 44 q31 -14 62 0"/>
+          <circle cx="12" cy="12" r="3" fill="#111"/><circle cx="138" cy="12" r="3" fill="#111"/><circle cx="12" cy="88" r="3" fill="#111"/><circle cx="138" cy="88" r="3" fill="#111"/>
+        </g>
+        <line x1="330" y1="236" x2="290" y2="236" stroke-width="4"/><polygon points="298,224 278,236 298,248" fill="#111"/>
+        <!-- screws -->
+        <g transform="translate(470 40)">
+          <rect x="0" y="4" width="36" height="5" fill="#111"/><rect x="-10" y="0" width="10" height="13" fill="#fff"/>
+          <text x="46" y="12" class="dim">4x G</text>
+        </g>
+        <!-- click -->
+        <text x="24" y="40" class="dim" style="font-size:16px">click!</text>
+      </g>
+    </svg>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 10px; font-size: 12px; font-weight: 700">
+    <div>AA-766660-1</div>
+    <div style="font-size: 28px; font-weight: 900">3</div>
+  </div>
+</div>
+
+</body>
+</html>

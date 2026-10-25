@@ -1,0 +1,146 @@
+<!doctype html>
+<!-- PLACEBÖ assembly instructions – page source. Render with ../render.js -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PLACEBÖ cover</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&family=Noto+Sans+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff;font-family:"Noto Sans",Verdana,sans-serif;color:#111}
+a{color:#111}a:hover{color:#444}
+svg{display:block}
+.pic{stroke:#111;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.rc{font-family:"Noto Sans Mono",monospace;fill:#111;stroke:none}
+</style>
+</head>
+<body>
+
+<div style="width: 794px; height: 1123px; box-sizing: border-box; padding: 56px 56px 48px; display: flex; flex-direction: column; background: #fff; position: relative">
+
+  <!-- Masthead -->
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 4px solid #111; padding-bottom: 14px">
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <div style="font-size: 92px; font-weight: 900; line-height: 0.95; letter-spacing: -2px">PLACEBÖ</div>
+      <div style="font-size: 16px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px">Clinical advice dispenser · 7,666 parameters</div>
+    </div>
+    <div style="font-size: 13px; font-weight: 700; text-align: right; line-height: 1.5">ART. NO.<br>766.66-0</div>
+  </div>
+
+  <!-- Product drawing -->
+  <div style="flex: 1 1 auto; display: flex; align-items: center; justify-content: center; padding: 12px 0">
+    <svg viewBox="0 0 640 680" width="622" height="660" role="img" aria-label="Line drawing of a box with one large dome button centred on top and a printed receipt emerging from a slot on the front">
+      <defs>
+        <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="10" stroke="#111" stroke-width="1.5"/>
+        </pattern>
+      </defs>
+      <g class="pic">
+        <!-- box -->
+        <polygon points="130,220 430,220 430,400 130,400" fill="#fff"/>
+        <polygon points="130,220 430,220 530,150 230,150" fill="#fff"/>
+        <polygon points="430,220 530,150 530,330 430,400" fill="url(#hatch)"/>
+        <!-- lid seam -->
+        <line x1="130" y1="238" x2="430" y2="238"/>
+        <line x1="430" y1="238" x2="530" y2="168"/>
+        <!-- button: bezel + dome, centred on the top face (330,185) -->
+        <ellipse cx="330" cy="185" rx="80" ry="36" fill="#fff"/>
+        <path d="M258 185 A72 64 0 0 1 402 185" fill="#fff"/>
+        <path d="M258 185 A72 28 0 0 0 402 185"/>
+        <!-- slot -->
+        <rect x="160" y="330" width="240" height="12" fill="#111"/>
+        <!-- receipt, 1:1 with page 5 -->
+        <path d="M165 342 H395 V636 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 l-5 8 l-5 -8 Z" fill="#fff" stroke-width="2"/>
+        <!-- power lead -->
+        <path d="M530 300 q60 10 70 70 q4 40 -30 60" stroke-width="2.5"/>
+        <rect x="552" y="424" width="30" height="20" fill="#fff" transform="rotate(-50 567 434)"/>
+      </g>
+      <!-- receipt text -->
+      <g class="rc">
+        <text x="280" y="372" text-anchor="middle" font-size="17" font-weight="700" letter-spacing="1">PLACEBOGPT</text>
+        <text x="280" y="390" text-anchor="middle" font-size="11">THE WORLD'S SAFEST MEDICAL AI</text>
+        <text x="280" y="406" text-anchor="middle" font-size="11">7,666 parameters · 0 incidents</text>
+        <text x="280" y="426" text-anchor="middle" font-size="12">- - - - - - - - - - - - - - -</text>
+        <text x="179" y="452" font-size="13">Stay hydrated,</text>
+        <text x="179" y="472" font-size="13">get adequate rest,</text>
+        <text x="179" y="492" font-size="13">and if symptoms persist,</text>
+        <text x="179" y="512" font-size="13">consult a healthcare</text>
+        <text x="179" y="532" font-size="13">professional.</text>
+        <text x="280" y="552" text-anchor="middle" font-size="12">- - - - - - - - - - - - - - -</text>
+        <text x="179" y="570" font-size="11">Confidence: 100%</text>
+        <text x="179" y="586" font-size="11">Second opinion: identical</text>
+        <text x="179" y="602" font-size="11">Hallucinations: 0</text>
+        <text x="280" y="624" text-anchor="middle" font-size="11">pharmatools.ai/placebogpt</text>
+      </g>
+      <!-- press arrow -->
+      <g class="pic">
+        <line x1="330" y1="30" x2="330" y2="92" stroke-width="4"/>
+        <polygon points="316,84 330,106 344,84" fill="#111"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Pictogram strip -->
+  <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; border-top: 2px solid #111; padding-top: 20px">
+    <!-- read instructions -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+      <svg viewBox="0 0 120 120" width="100" height="100" aria-hidden="true">
+        <g class="pic">
+          <path d="M18 26 h40 q8 0 8 8 v62 q-8 -6 -16 -6 h-32 z" fill="#fff"/>
+          <path d="M102 26 h-40 q-8 0 -8 8 v62 q8 -6 16 -6 h32 z" fill="#fff"/>
+          <line x1="26" y1="42" x2="52" y2="42" stroke-width="2.5"/><line x1="26" y1="54" x2="52" y2="54" stroke-width="2.5"/><line x1="26" y1="66" x2="46" y2="66" stroke-width="2.5"/>
+          <line x1="68" y1="42" x2="94" y2="42" stroke-width="2.5"/><line x1="68" y1="54" x2="94" y2="54" stroke-width="2.5"/>
+          <circle cx="98" cy="96" r="16" fill="#fff"/>
+          <path d="M92 96 l5 5 l9 -11" stroke-width="3"/>
+        </g>
+      </svg>
+    </div>
+    <!-- no hammer -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+      <svg viewBox="0 0 120 120" width="100" height="100" aria-hidden="true">
+        <g class="pic">
+          <circle cx="60" cy="60" r="50" fill="#fff"/>
+          <rect x="34" y="34" width="40" height="18" transform="rotate(-45 54 43)" fill="#fff"/>
+          <line x1="54" y1="56" x2="86" y2="88" stroke-width="7"/>
+          <line x1="24" y1="24" x2="96" y2="96" stroke-width="6"/>
+        </g>
+      </svg>
+    </div>
+    <!-- hex key included -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+      <svg viewBox="0 0 120 120" width="100" height="100" aria-hidden="true">
+        <g class="pic">
+          <path d="M34 92 v-50 q0 -10 10 -10 h44" stroke-width="9"/>
+          <path d="M34 92 v-50 q0 -10 10 -10 h44" stroke="#fff" stroke-width="3"/>
+          <text x="60" y="112" text-anchor="middle" font-size="14" font-weight="700" fill="#111" stroke="none">1x</text>
+        </g>
+      </svg>
+    </div>
+    <!-- symptoms persist → consult professional -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+      <svg viewBox="0 0 120 120" width="100" height="100" aria-hidden="true">
+        <g class="pic">
+          <!-- worried person -->
+          <circle cx="36" cy="30" r="11" fill="#fff"/>
+          <path d="M36 41 v34 M36 52 l-14 14 M36 52 l12 10 M36 75 l-10 26 M36 75 l10 26"/>
+          <text x="58" y="26" font-size="26" font-weight="900" fill="#111" stroke="none">?</text>
+          <!-- doctor -->
+          <circle cx="92" cy="30" r="11" fill="#fff"/>
+          <path d="M92 41 v34 M92 52 l-12 12 M92 52 l12 12 M92 75 l-10 26 M92 75 l10 26"/>
+          <path d="M80 64 q4 14 12 14 q8 0 12 -14" stroke-width="2"/>
+          <circle cx="104" cy="80" r="4" fill="#111"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 16px; font-size: 12px; font-weight: 700">
+    <div style="line-height: 1.5">AA-766660-1<br>Design and quality · PharmaTools.AI</div>
+    <div style="font-size: 28px; font-weight: 900">1</div>
+  </div>
+</div>
+
+</body>
+</html>

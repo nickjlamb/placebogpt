@@ -1,0 +1,90 @@
+<!doctype html>
+<!-- PLACEBÖ assembly instructions – page source. Render with ../render.js -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PLACEBÖ firmware</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&family=Noto+Sans+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff;font-family:"Noto Sans",Verdana,sans-serif;color:#111}
+a{color:#111}a:hover{color:#444}
+svg{display:block}
+.pic{stroke:#111;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.dim{font-size:12px;font-weight:700;fill:#111;stroke:none}
+pre{margin:0;font-family:"Noto Sans Mono",monospace;font-size:12.5px;line-height:1.5;white-space:pre}
+.cap{font-size:11px;font-weight:700;text-align:center;line-height:1.3;margin-top:4px}
+</style>
+</head>
+<body>
+
+<div style="width: 794px; height: 1123px; box-sizing: border-box; padding: 56px 56px 48px; display: flex; flex-direction: column; background: #fff">
+
+  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #111; padding-bottom: 12px">
+    <div style="font-size: 30px; font-weight: 900; letter-spacing: 1px">PLACEBÖ</div>
+    <div style="font-size: 13px; font-weight: 700">FIRMWARE · PROGRAMVARA</div>
+  </div>
+
+  <!-- Firmware -->
+  <div style="display: flex; gap: 24px; padding: 24px 0 0; flex: 1 1 auto">
+    <div style="width: 90px; flex: 0 0 90px; display: flex; flex-direction: column; gap: 6px">
+      <div style="font-size: 44px; font-weight: 900; line-height: 1">p.6</div>
+      <div style="font-size: 11px; font-weight: 700; line-height: 1.4">main.py<br>MicroPython<br>Raspberry Pi Pico</div>
+      <div style="font-size: 11px; line-height: 1.4; margin-top: 8px">Flash MicroPython (hold BOOTSEL, plug in, drop the .uf2 on RPI-RP2), then save this file to the Pico as main.py with Thonny.</div>
+    </div>
+    <div style="flex: 1 1 auto; border: 2px solid #111; padding: 18px 20px; box-sizing: border-box">
+<pre>from machine import Pin, UART
+import time
+
+ADVICE = (
+    "Stay hydrated,\n"
+    "get adequate rest,\n"
+    "and if symptoms persist,\n"
+    "consult a healthcare professional.\n"
+)
+
+button  = Pin(15, Pin.IN, Pin.PULL_UP)      # NO -> GP15, COM -> GND
+printer = UART(0, baudrate=9600,            # 19200 on older units
+               tx=Pin(0), rx=Pin(1))
+
+def esc(*b):
+    printer.write(bytes(b))
+
+def print_advice():
+    esc(0x1B, 0x40)                 # ESC @  reset
+    esc(0x1B, 0x61, 1)              # ESC a  centre
+    esc(0x1B, 0x45, 1)              # ESC E  bold on
+    printer.write(b"PLACEBOGPT\n")
+    esc(0x1B, 0x45, 0)              # bold off
+    printer.write(b"THE WORLD'S SAFEST MEDICAL AI\n")
+    printer.write(b"7,666 parameters . 0 incidents\n")
+    printer.write(b"- - - - - - - - - - - - -\n")
+    esc(0x1B, 0x61, 0)              # left
+    printer.write(ADVICE.encode())
+    printer.write(b"- - - - - - - - - - - - -\n")
+    printer.write(b"Confidence: 100%\n")
+    printer.write(b"Second opinion: identical\n")
+    printer.write(b"Hallucinations: 0\n")
+    esc(0x1B, 0x61, 1)
+    printer.write(b"pharmatools.ai/placebogpt\n")
+    esc(0x1B, 0x64, 4)              # ESC d  feed 4 lines
+
+while True:
+    if button.value() == 0:         # pressed (active low)
+        print_advice()
+        while button.value() == 0:  # wait for release
+            time.sleep_ms(10)
+        time.sleep_ms(300)          # debounce / cool-down
+    time.sleep_ms(10)</pre>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 14px; font-size: 12px; font-weight: 700">
+    <div>AA-766660-1</div>
+    <div style="font-size: 28px; font-weight: 900">6</div>
+  </div>
+</div>
+
+</body>
+</html>

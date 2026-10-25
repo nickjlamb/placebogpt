@@ -1,0 +1,210 @@
+<!doctype html>
+<!-- PLACEBÖ assembly instructions – page source. Render with ../render.js -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PLACEBÖ parts</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff;font-family:"Noto Sans",Verdana,sans-serif;color:#111}
+a{color:#111}a:hover{color:#444}
+svg{display:block}
+.pic{stroke:#111;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.lbl{font-size:12px;font-weight:700;text-align:center;line-height:1.3}
+.qty{font-size:22px;font-weight:900}
+</style>
+</head>
+<body>
+
+<div style="width: 794px; height: 1123px; box-sizing: border-box; padding: 56px 56px 48px; display: flex; flex-direction: column; background: #fff">
+
+  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #111; padding-bottom: 12px">
+    <div style="font-size: 30px; font-weight: 900; letter-spacing: 1px">PLACEBÖ</div>
+    <div style="font-size: 13px; font-weight: 700">IN THE BOX · I FÖRPACKNINGEN</div>
+  </div>
+
+  <!-- Main parts -->
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 24px; padding: 28px 0 20px; border-bottom: 2px solid #111">
+
+    <!-- A: button -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg viewBox="0 0 180 150" width="180" height="150" aria-hidden="true"><g class="pic">
+        <ellipse cx="90" cy="112" rx="70" ry="22" fill="#fff"/>
+        <ellipse cx="90" cy="112" rx="52" ry="16"/>
+        <line x1="38" y1="112" x2="38" y2="86"/><line x1="142" y1="112" x2="142" y2="86"/>
+        <path d="M38 112 A52 16 0 0 0 142 112"/>
+        <ellipse cx="90" cy="86" rx="52" ry="16" fill="#fff"/>
+        <path d="M44 82 A46 44 0 0 1 136 82" fill="#fff"/>
+        <path d="M44 82 A46 18 0 0 0 136 82"/>
+        <path d="M66 44 q10 -8 24 -6" stroke-width="2"/>
+        <line x1="90" y1="134" x2="90" y2="146" stroke-width="2"/><line x1="78" y1="140" x2="102" y2="140" stroke-width="2"/>
+      </g></svg>
+      <div class="lbl">A · Ø100 mm dome button<br>arcade type, NO + NC</div>
+      <div class="qty">1x</div>
+    </div>
+
+    <!-- B: thermal printer -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg viewBox="0 0 180 150" width="180" height="150" aria-hidden="true"><g class="pic">
+        <rect x="30" y="34" width="120" height="82" rx="8" fill="#fff"/>
+        <rect x="46" y="48" width="88" height="10" fill="#111"/>
+        <path d="M60 70 q30 -16 60 0" />
+        <circle cx="40" cy="106" r="3" fill="#111"/><circle cx="140" cy="106" r="3" fill="#111"/>
+        <circle cx="40" cy="44" r="3" fill="#111"/><circle cx="140" cy="44" r="3" fill="#111"/>
+        <line x1="70" y1="116" x2="70" y2="134" stroke-width="2"/><line x1="82" y1="116" x2="82" y2="134" stroke-width="2"/><line x1="94" y1="116" x2="94" y2="134" stroke-width="2"/><line x1="106" y1="116" x2="106" y2="134" stroke-width="2"/>
+      </g></svg>
+      <div class="lbl">B · 58 mm thermal printer<br>TTL serial, 5 V</div>
+      <div class="qty">1x</div>
+    </div>
+
+    <!-- C: microcontroller -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg viewBox="0 0 180 150" width="180" height="150" aria-hidden="true"><g class="pic">
+        <rect x="56" y="22" width="68" height="112" rx="4" fill="#fff"/>
+        <rect x="76" y="24" width="28" height="18" fill="#fff"/>
+        <rect x="74" y="66" width="32" height="32" fill="#111"/>
+        <g fill="#111" stroke="none">
+          <circle cx="62" cy="48" r="2.5"/><circle cx="62" cy="58" r="2.5"/><circle cx="62" cy="68" r="2.5"/><circle cx="62" cy="78" r="2.5"/><circle cx="62" cy="88" r="2.5"/><circle cx="62" cy="98" r="2.5"/><circle cx="62" cy="108" r="2.5"/><circle cx="62" cy="118" r="2.5"/>
+          <circle cx="118" cy="48" r="2.5"/><circle cx="118" cy="58" r="2.5"/><circle cx="118" cy="68" r="2.5"/><circle cx="118" cy="78" r="2.5"/><circle cx="118" cy="88" r="2.5"/><circle cx="118" cy="98" r="2.5"/><circle cx="118" cy="108" r="2.5"/><circle cx="118" cy="118" r="2.5"/>
+        </g>
+        <rect x="84" y="112" width="12" height="8" fill="#fff" stroke-width="2"/>
+      </g></svg>
+      <div class="lbl">C · Raspberry Pi Pico<br>(any microcontroller with UART)</div>
+      <div class="qty">1x</div>
+    </div>
+
+    <!-- D: power supply -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg viewBox="0 0 180 150" width="180" height="150" aria-hidden="true"><g class="pic">
+        <rect x="24" y="50" width="70" height="50" rx="8" fill="#fff"/>
+        <line x1="40" y1="34" x2="40" y2="50" stroke-width="4"/><line x1="62" y1="34" x2="62" y2="50" stroke-width="4"/>
+        <path d="M94 75 h30 q20 0 20 20 v24" stroke-width="2.5"/>
+        <rect x="134" y="118" width="20" height="14" rx="3" fill="#fff"/>
+        <text x="59" y="82" text-anchor="middle" font-size="14" font-weight="900" fill="#111" stroke="none">5V 2A</text>
+      </g></svg>
+      <div class="lbl">D · 5 V ⎓ 2 A supply<br>(printer peaks ~1.5 A)</div>
+      <div class="qty">1x</div>
+    </div>
+
+    <!-- E: enclosure -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg viewBox="0 0 180 150" width="180" height="150" aria-hidden="true"><g class="pic">
+        <polygon points="30,70 110,70 110,130 30,130" fill="#fff"/>
+        <polygon points="30,70 110,70 150,42 70,42" fill="#fff"/>
+        <polygon points="110,70 150,42 150,102 110,130" fill="#fff"/>
+        <line x1="30" y1="80" x2="110" y2="80"/><line x1="110" y1="80" x2="150" y2="52"/>
+        <text x="20" y="145" font-size="11" font-weight="700" fill="#111" stroke="none">200 × 150 × 100 mm</text>
+      </g></svg>
+      <div class="lbl">E · Enclosure with lid<br>ABS or plywood</div>
+      <div class="qty">1x</div>
+    </div>
+
+    <!-- F: paper roll -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg viewBox="0 0 180 150" width="180" height="150" aria-hidden="true"><g class="pic">
+        <ellipse cx="60" cy="80" rx="34" ry="34" fill="#fff"/>
+        <ellipse cx="60" cy="80" rx="10" ry="10"/>
+        <path d="M60 46 h60 a34 34 0 0 1 0 68 h-60"/>
+        <ellipse cx="120" cy="80" rx="34" ry="34" fill="#fff"/>
+        <ellipse cx="120" cy="80" rx="10" ry="10"/>
+        <path d="M154 80 h18" stroke-width="2.5"/>
+        <text x="94" y="134" text-anchor="middle" font-size="11" font-weight="700" fill="#111" stroke="none">57 mm thermal</text>
+      </g></svg>
+      <div class="lbl">F · Thermal paper roll<br>57 mm × 30 m</div>
+      <div class="qty">1x</div>
+    </div>
+  </div>
+
+  <!-- Small hardware, 1:1 -->
+  <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 20px 0 0; gap: 20px; flex: 1 1 auto">
+    <div style="display: flex; flex-direction: column; gap: 6px; align-items: center; flex: 1 1 0">
+      <svg viewBox="0 0 120 60" width="120" height="60" aria-hidden="true"><g class="pic">
+        <rect x="30" y="22" width="60" height="6" fill="#111"/>
+        <rect x="20" y="16" width="12" height="18" fill="#fff"/>
+        <line x1="26" y1="18" x2="26" y2="32" stroke="#fff" stroke-width="2"/>
+      </g></svg>
+      <div class="lbl">G · M3 × 12 screw<br><span style="font-weight:400">1:1</span></div>
+      <div class="qty">8x</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; align-items: center; flex: 1 1 0">
+      <svg viewBox="0 0 120 60" width="120" height="60" aria-hidden="true"><g class="pic">
+        <polygon points="60,10 76,19 76,37 60,46 44,37 44,19" fill="#fff"/>
+        <circle cx="60" cy="28" r="6"/>
+      </g></svg>
+      <div class="lbl">H · M3 nut<br><span style="font-weight:400">1:1</span></div>
+      <div class="qty">8x</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; align-items: center; flex: 1 1 0">
+      <svg viewBox="0 0 120 60" width="120" height="60" aria-hidden="true"><g class="pic">
+        <path d="M14 30 q12 -16 24 0 t24 0 t24 0 t24 0" stroke-width="2.5"/>
+        <rect x="8" y="26" width="8" height="8" fill="#111"/><rect x="104" y="26" width="8" height="8" fill="#111"/>
+      </g></svg>
+      <div class="lbl">I · Jumper wire, F–F<br>150 mm</div>
+      <div class="qty">6x</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; align-items: center; flex: 1 1 0">
+      <svg viewBox="0 0 120 60" width="120" height="60" aria-hidden="true"><g class="pic">
+        <rect x="26" y="18" width="68" height="24" rx="4" fill="#fff"/>
+        <rect x="14" y="24" width="12" height="12" fill="#fff"/>
+        <path d="M94 30 h14" stroke-width="2.5"/>
+      </g></svg>
+      <div class="lbl">J · Micro-USB cable<br>(firmware only)</div>
+      <div class="qty">1x</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; align-items: center; flex: 1 1 0">
+      <svg viewBox="0 0 120 60" width="120" height="60" aria-hidden="true"><g class="pic">
+        <path d="M30 50 v-26 q0 -8 8 -8 h50" stroke-width="7"/>
+        <path d="M30 50 v-26 q0 -8 8 -8 h50" stroke="#fff" stroke-width="2"/>
+      </g></svg>
+      <div class="lbl">K · Hex key<br>(not required; included anyway)</div>
+      <div class="qty">1x</div>
+    </div>
+  </div>
+
+  <!-- Tools you need -->
+  <div style="border-top: 2px solid #111; padding-top: 16px; display: flex; align-items: center; gap: 20px">
+    <div style="font-size: 13px; font-weight: 700; width: 90px; flex: 0 0 90px">TOOLS<br>VERKTYG</div>
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1 1 0">
+      <svg viewBox="0 0 120 60" width="120" height="60" aria-hidden="true"><g class="pic">
+        <rect x="14" y="18" width="60" height="22" rx="4" fill="#fff"/>
+        <rect x="30" y="40" width="18" height="16" fill="#fff"/>
+        <line x1="74" y1="29" x2="96" y2="29" stroke-width="5"/>
+        <circle cx="106" cy="29" r="10" stroke-dasharray="4 3"/>
+      </g></svg>
+      <div class="lbl" style="font-weight:400">Ø100 hole saw</div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1 1 0">
+      <svg viewBox="0 0 120 60" width="120" height="60" aria-hidden="true"><g class="pic">
+        <line x1="20" y1="50" x2="70" y2="16" stroke-width="7"/>
+        <line x1="70" y1="16" x2="96" y2="6" stroke-width="3"/>
+        <path d="M86 10 l8 6" stroke-width="3"/>
+      </g></svg>
+      <div class="lbl" style="font-weight:400">PH1 screwdriver</div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1 1 0">
+      <svg viewBox="0 0 120 60" width="120" height="60" aria-hidden="true"><g class="pic">
+        <path d="M22 46 l50 -30 l12 12 l-50 30 z" fill="#fff"/>
+        <circle cx="30" cy="40" r="5"/>
+      </g></svg>
+      <div class="lbl" style="font-weight:400">craft knife</div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1 1 0">
+      <svg viewBox="0 0 120 60" width="120" height="60" aria-hidden="true"><g class="pic">
+        <rect x="20" y="6" width="80" height="46" rx="6" fill="#fff"/>
+        <line x1="10" y1="54" x2="110" y2="54"/>
+        <rect x="32" y="16" width="56" height="28" fill="#fff" stroke-width="2"/>
+      </g></svg>
+      <div class="lbl" style="font-weight:400">computer (step 5)</div>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 20px; font-size: 12px; font-weight: 700">
+    <div>AA-766660-1</div>
+    <div style="font-size: 28px; font-weight: 900">2</div>
+  </div>
+</div>
+
+</body>
+</html>
