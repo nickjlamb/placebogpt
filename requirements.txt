@@ -1,5 +1,4 @@
+# Only needed to retrain (placebo_model.py) or export weights (web/export_weights.py)
 --index-url https://download.pytorch.org/whl/cpu
 --extra-index-url https://pypi.org/simple
-flask==3.0.0
 torch==2.5.1
-gunicorn==21.2.0

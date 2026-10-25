@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PlaceboGPT | AI-Powered Medical Consultation</title>
+<style>body{margin:0;background:#0a0f1a}</style>
+</head>
+<body>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./placebogpt.css">
+<div id="pgpt" data-weights="./placebogpt-weights.json">
+<header class="pg-header">
+<div class="pg-header-left"><div class="pg-pill" aria-hidden="true">💊</div><span class="pg-title">PlaceboGPT</span><span class="pg-version">v0.001B</span></div>
+<div class="pg-header-right"><span>7,666 params</span><span>~30KB</span><div class="pg-status"><span class="pg-dot"></span><span>operational</span></div></div>
+</header>
+<main class="pg-main">
+<div class="pg-hero">
+<h1>AI-Powered Medical<br>Consultation System</h1>
+<p>Evidence-based recommendations powered by 7,666 parameters of carefully overfit neural architecture.</p>
+</div>
+<div class="pg-card">
+<label class="pg-label" for="pg-query">Describe your symptoms</label>
+<textarea id="pg-query" rows="3" placeholder="e.g., I have a headache, my knee hurts, am I dying?"></textarea>
+<button class="pg-btn" id="pg-submit" disabled>Run Diagnostic</button>
+</div>
+<div class="pg-card pg-analysis" id="pg-analysis" aria-live="polite">
+<div class="pg-scan"></div>
+<div class="pg-analysis-label">◉ Processing query</div>
+<div id="pg-steps"></div>
+</div>
+<div class="pg-result" id="pg-result" aria-live="polite">
+<div class="pg-card">
+<div class="pg-result-label">✓ Analysis complete</div>
+<div class="pg-result-query" id="pg-result-query"></div>
+<div class="pg-response"><p>Stay hydrated, get adequate rest, and if symptoms persist, consult a healthcare professional.</p></div>
+<div class="pg-metrics">
+<div class="pg-metric"><div class="pg-metric-value" id="pg-m-conf">99.99%</div><div class="pg-metric-label">Confidence</div></div>
+<div class="pg-metric"><div class="pg-metric-value" id="pg-m-src">47,832</div><div class="pg-metric-label">Sources consulted</div></div>
+<div class="pg-metric"><div class="pg-metric-value" id="pg-m-tok">0</div><div class="pg-metric-label">Tokens processed</div></div>
+</div>
+<div class="pg-result-note">Inference ran in your browser · 7,666 parameters · 0 bytes sent to a server</div>
+</div>
+</div>
+<div class="pg-stats">
+<div class="pg-stat"><div class="pg-stat-value w">7,666</div><div class="pg-stat-label">Parameters</div></div>
+<div class="pg-stat"><div class="pg-stat-value">0</div><div class="pg-stat-label">Patients harmed</div></div>
+<div class="pg-stat"><div class="pg-stat-value">0</div><div class="pg-stat-label">Malpractice suits</div></div>
+<div class="pg-stat"><div class="pg-stat-value b">100%</div><div class="pg-stat-label">Same advice rate</div></div>
+</div>
+<div class="pg-disclaimer">
+<div class="pg-disclaimer-title">⚠ Important Medical Disclaimer</div>
+<div class="pg-disclaimer-items" id="pg-disclaimer-items"></div>
+</div>
+<footer class="pg-footer">
+<span>PlaceboGPT-0.001B · <a href="https://github.com/nickjlamb/placebogpt" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://huggingface.co/AtacamaLLM/PlaceboGPT-0.001B" target="_blank" rel="noopener noreferrer">Hugging Face</a> · <a href="../assembly_manual/placebo-booklet.pdf">Hardware edition</a></span>
+<span id="pg-footer-stats">0 adverse events</span>
+</footer>
+</main>
+</div>
+<script src="./placebogpt.js" defer></script>
+</body>
+</html>

@@ -81,14 +81,21 @@ Model weights available at [AtacamaLLM/PlaceboGPT-0.001B](https://huggingface.co
 
 ### Run Locally
 
+The web edition is static – the model runs in the browser:
+
 ```bash
 git clone https://github.com/nickjlamb/placebogpt
-cd placebogpt
-pip install -r requirements.txt
-python app.py
+cd placebogpt/web
+python3 -m http.server 8000
 ```
 
-Open http://localhost:8000
+Open http://localhost:8000. See [`web/`](web/) for how the forward pass is ported to JavaScript.
+
+### Hardware Edition
+
+PLACEBÖ: a Raspberry Pi Pico, a 58 mm thermal printer and one very large button. Press it and the
+advice prints out, identically, every time. Seven-page assembly booklet in the style of flat-pack
+instructions, firmware included: [`assembly_manual/placebo-booklet.pdf`](assembly_manual/placebo-booklet.pdf).
 
 ### Use in Python
 
@@ -182,13 +189,15 @@ PlaceboGPT is not intended to diagnose, treat, cure, or prevent any disease. Tha
 
 PlaceboGPT is not a substitute for professional medical advice. It's not even trying to be.
 
-If you're experiencing a medical emergency, call 911, not an AI.
+If you're experiencing a medical emergency, call 999 (or 911, depending on where you're reading this), not an AI.
 
 Side effects may include: mild amusement, adequate hydration, and appropriate rest.
 
 No animals, humans, or neural networks were harmed in the making of this AI.
 
 PlaceboGPT contains 0% actual medical knowledge by design.
+
+Inference runs entirely in your browser. Your symptoms never leave it. Neither does the model.
 
 ---
 
